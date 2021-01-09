@@ -32,8 +32,6 @@ urlpatterns = [
     path('teacher_home', views.teacher_home),
     path('student_home', views.student_home),
     path('view_answer/', views.view_answer),
-    url(r'^$', views.home_r, name="home"),
-    path('home', views.home),
     path('profile', views.profile),
     path('profile_t', views.profile_t),
     path('update_img', views.update_img),
