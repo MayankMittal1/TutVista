@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="{% static 'bootstrap/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <title>TutVista</title>
+    <style>
+      .container1{
+        background-image: url('..//static/1.jpg');
+        opacity: 0.7;
+      }
+
+      .dark-overlay{
+        background-color: rgba(22, 34, 57, 0.7);
+      }
+      .home{
+          background: url("../static/1.jpg");
+          background-repeat: no-repeat;
+          background-size: cover;
+          color: white;
+      }
+      
+      .card {
+          color: black;
+          height: 600px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 400px;
+        min-width: 0;
+        word-wrap: break-word;
+        background:rgba(255, 255, 255, 0.3);
+        background-clip: border-box;
+        border: 1px solid rgba(0, 0, 0, 0.125);
+        border-radius: 0.25rem; }
+        .card > hr {
+            margin-right: 0;
+            margin-left: 0; }
+        .card > .list-group {
+            border-top: inherit;
+            border-bottom: inherit; }
+            .card > .list-group:first-child {
+            border-top-width: 0;
+            border-top-left-radius: calc(0.25rem - 1px);
+            border-top-right-radius: calc(0.25rem - 1px); }
+            .card > .list-group:last-child {
+            border-bottom-width: 0;
+            border-bottom-right-radius: calc(0.25rem - 1px);
+            border-bottom-left-radius: calc(0.25rem - 1px); }
+  .card > .card-header + .list-group,
+  .card > .list-group + .card-footer {
+    border-top: 0; }
+
+.card-body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1.25rem; 
+}
+
+  .card-header {
+    background:rgba(255, 255, 255, 0.2);
+    color: white;
+    font-weight: bold;
+    font-size: large;
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1.25rem; }
+  .form-input{
+      border-radius: 3px;
+      padding-left: 20px;
+    background:rgba(255, 255, 255, 0.6);
+      width: 300px;
+      margin-top: 30px;
+      height: 40px;
+  }
+  .form-input-lg{
+      border-radius: 3px;
+      padding-left: 20px;
+    background:rgba(255, 255, 255, 0.6);
+      width: 300px;
+      margin-top: 30px;
+      height: 90px;
+  }
+  .btn-gi{
+      margin-top: 30px;
+  }
+ 
+    </style>
+</head>
+<body>
+    <header class="text-gray-600 body-font">
+      <nav class="navbar navbar-expand-md navbar-dark bg-white fixed-top">
+        <div class="container-fluid">
+          <img src="{% static 'sign_in/logo.jpg' %}" height="50px" width="50px" style="margin-left: 20px;">
+          <a class="navbar-brand " href="/home" style="
+          color:black;
+          margin-left: 9px; font-size: small; font-family: 'Open Sans', sans-serif; font-size: larger; font-weight: bolder;">
+          TutVista<br>
+          </a>
+          <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" style="background:rgb(106,44,229);">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                  <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black;font-family: 'Open Sans', sans-serif; ">
+                        Student Portal
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+                        <li><a class="dropdown-item" href="/login" >Login</a></li>
+                        <li><a class="dropdown-item" href="/register">Register</a></li>
+                      </ul>
+                    
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black;font-family: 'Open Sans', sans-serif; ">
+                        Teacher Portal
+                      </a>  
+                      <ul class="dropdown-menu dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink" >
+                        <li><a class="dropdown-item" href="/login_t" >Login</a></li>
+                        <li><a class="dropdown-item" href="/register_t" >Register</a></li>
+                       
+                      </ul>
+                    
+                    </li>
+                  </ul>
+                </div>
+        </div>
+      </nav>
+      </header>
+     
+      <section class="text-gray-600 body-font home">
+        <div class="dark-overlay">
+        <div class="container mx-auto flex px-1 py-24 lg:flex-row flex-col items-center">
+          <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+            <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900" style="color: white;">A walkthrough of our work</h1>
+            <h3 style="font-size: larger; font-weight: solid;">Empowering Education</h3><br>
+
+              
+            <p class="self-align-start" style="font-weight: solid; text-align: start;">Having problems with your academics?<br>PCM Questions haunting you?<br>We at TutVista are a community of quality tutors helping you with your academic related doubts.Join up with us and you can all your queries for which are tutors are ever ready to help you.</p>
+
+          </div>
+          <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+            <div class="card text-center card-form">
+              <div class="card-header">
+                Get In Touch
+              </div>
+                <div class="card-body">
+                    <form action="" method="POST">
+                      {% csrf_token %}
+                        <div class="form-group">
+                        <input type="text" class="form-input" placeholder="YOUR NAME" name='name'>
+                        </div>
+                        <div class="form-group">
+                        <input type="email" class="form-input" placeholder="YOUR EMAIL" name="email">
+                        </div>
+                        <div class="form-group">
+                        <input type="text" class="form-input" placeholder="YOUR PHONE NUMVER" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-input-lg" placeholder="Comments" name="comment">
+                        </div>
+                        <input type="submit" class="btn-gi inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg" value="Get Info Now">
+                    </form>
+                </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </section>
+      <script src="{% static 'bootstrap/bootstrap.bundle.min.js' %}"></script>
+    
+</body>
+</html>

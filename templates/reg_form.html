@@ -1,0 +1,89 @@
+{% load static %}
+<link href="{% static 'sign_in/bootstrap.min2.css' %}" rel="stylesheet" id="bootstrap-css">
+<script src="{% static 'sign_in/bootstrap.min2.js' %}"></script>
+<script src="{% static 'sign_in/jquery.min2.js' %}"></script>
+
+<!DOCTYPE html>
+<html>
+    
+<head>
+	<title>Sign in/Sign up</title>
+	<link href="{% static 'tailwind/tailwind.min.css' %}" rel="stylesheet">
+	<link rel="stylesheet" href="{% static 'sign_in/bootstrap.min.css' %}">
+	<script src="{% static 'sign_in/jQuery.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'sign_in/all.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'sign_in/style2.css' %}">
+	<script src="{% static 'bootstrap/bootstrap.bundle.min.js' %}"></script>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+	<header class="text-gray-600 body-font">
+		<nav class="navbar navbar-expand-md navbar-dark bg-white">
+		  <div class="container-fluid">
+			<img src="{% static 'sign_in/logo.jpg' %}" height="50px" width="50px" style="margin-left: 20px;">
+			<a class="navbar-brand " href="/home" style="
+			color:black;
+			margin-left: 9px; font-size: small; font-family: 'Open Sans', sans-serif; font-size: larger; font-weight: bolder;">
+			TutVista<br>
+			</a>
+			<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" style="background:rgb(106,44,229);">
+			  <span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+					<ul class="navbar-nav ml-auto">
+					  <li class="nav-item dropdown">
+						<button class="nav-link dropdown-toggle" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black;font-family: 'Open Sans', sans-serif; ">
+						  Student Portal
+						</button>
+						<ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+						  <li><a class="dropdown-item" href="/login" >Login</a></li>
+						  <li><a class="dropdown-item" href="/register">Register</a></li>
+						</ul>
+					  
+					  </li>
+					  <li class="nav-item dropdown">
+						<button class="nav-link dropdown-toggle" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black;font-family: 'Open Sans', sans-serif; ">
+						  Teacher Portal
+						</button>  
+						<ul class="dropdown-menu dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink" >
+						  <li><a class="dropdown-item" href="/login_t" >Login</a></li>
+						  <li><a class="dropdown-item" href="/register_t" >Register</a></li>
+						 
+						</ul>
+					  
+					  </li>
+					</ul>
+				  </div>
+		  </div>
+		</nav>
+		</header>
+	{% load crispy_forms_tags %}
+	<div class="outer">
+	<div class='dark-overlay'>
+	<div class="container h-150">
+		<div class="d-flex justify-content-center h-100">
+            <div class="row card-container align-center">
+			<div class="user_card">
+				<div class="d-flex justify-content-center p-4">
+					<div class="brand_logo_container">
+						<img src="{% static 'sign_in/logo.jpg' %}" class="brand_logo" alt="Logo">
+					</div>
+				</div>
+				<div class="d-flex justify-content-center form_container">
+					<form action="" method="POST" enctype="multipart/form-data">
+						<p style="color: red;">{{error}}</p>
+						{% csrf_token %}
+						{{ form|crispy }}
+						<button type="submit" value="login" class="btn login_btn">Submit</button>
+					</form>
+				</div>
+		
+            </div>
+            </div>
+		</div>
+	</div>
+	</div>
+	</div>
+</body>
+</html>

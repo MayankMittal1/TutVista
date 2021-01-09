@@ -1,0 +1,16 @@
+.phy{
+    margin: 0;
+      padding: 0;
+      height: 100%;
+      width:100%;
+}
+.img-rounded{
+  width:100px;
+}
+  .img-rounded:hover {
+    position:relative;
+    width:300px;
+    height:auto;
+    display:block;
+    z-index:999;
+}

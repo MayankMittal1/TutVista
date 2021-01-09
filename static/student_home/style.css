@@ -1,0 +1,16 @@
+.phy{
+    margin: 0;
+      padding: 0;
+      height: 100%;
+      width:100%;
+}
+.question-img{
+  width:100px;
+}
+  .question-img:hover {
+    position:relative;
+    width:300px;
+    height:auto;
+    display:block;
+    z-index:999;
+}
