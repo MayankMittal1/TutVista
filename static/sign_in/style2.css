@@ -1,13 +1,10 @@
 	/* Coded with love by Mutiullah Samim */
-    body{
+    body, html{
       margin: 0;
       padding: 0;
-      height: 900px;
-      
+      height: 100%;
+      background: url('../1.jpg') no-repeat;
     }
-.outer{
-background: url('../1.jpg');
-}
     .dark-overlay{
       background: rgba(22, 34, 57, 0.7);
     }
@@ -15,9 +12,10 @@ background: url('../1.jpg');
       padding-top: 90px;
     }
     .user_card {
-      height: 720px;
+
+      height: 650px;
       width: 350px;
-      margin-top: auto;
+      margin-top: 80px;
       margin-bottom: auto;
       background: #faf9f9;
       position: relative;
