@@ -13,6 +13,12 @@ from Doubts import functions
 import random
 import string
 # Create your views here.
+def rand_pass(size=6):  
+    generate_pass = ''.join([random.choice( string.ascii_uppercase +
+                                            string.ascii_lowercase +
+                                            string.digits)  
+                                            for n in range(size)])
+    return generate_pass
 
 def home_r(request):
     return redirect('/home')
@@ -209,6 +215,24 @@ def profile_t(request):
     else:
         return redirect('/login_t')
 
+def update_img(request):
+    if request.method=='POST'and request.session.has_key('s'):
+        image=request.FILES.get('image')
+        ur=request.session['s']
+        student=Student.objects.get(user=ur)
+        student.image=image
+        student.save()
+        return redirect('/profile')
+
+    elif request.method=='POST'and request.session.has_key('t'):
+        image=request.FILES.get('image')
+        ur=request.session['t']
+        teacher=Teacher.objects.get(user=ur)
+        teacher.image=image
+        teacher.save()
+        return redirect('/profile_t')
+    else:
+        return redirect('/home')
 
 def all_questions(request):
     if request.session.has_key('s'):
@@ -258,3 +282,54 @@ def update_info(request):
         return redirect('/profile_t')
     else:
         return redirect('/home')
+
+def forget_pass(request):
+    if request.method == 'POST':
+        form = ForgetPass_s(request.POST)
+        if form.is_valid():
+            ur = form.cleaned_data['username']
+            em = form.cleaned_data['email']
+            dbuser = Student.objects.filter(user=ur, email=em)[0]
+            if not dbuser:
+                dbuser = Teacher.objects.filter(user=ur, email=em)[0]
+                if not dbuser:
+                    return render(request,'signin.html',{'form':form,'error':"No such user Exists"})
+                else:
+                    ran_pass=rand_pass()
+                    subject = 'Reset Password'
+                    message = "Hi {}, thank you for contacting TutVista\nYour temporary password is {}.\nGo to profile section to update your password.".format(dbuser.first_name,ran_pass)
+                    email_from = settings.EMAIL_HOST_USER 
+                    recipient_list = [dbuser.email, ]
+                    send_mail( subject, message, email_from, recipient_list )
+                    user = get_object_or_404(Teacher, user=ur, email=em)
+                    user.password=ran_pass
+                    user.save()
+                    return render(request,'signin.html',{'form':form,'error':"An email has been sent "+ran_pass})
+            else:
+                ran_pass=rand_pass()
+                subject = 'Reset Password'
+                message = "Hi {}, thank you for contacting TutVista\nYour temporary password is {}.\n Go to profile section to update your password.".format(dbuser.first_name,ran_pass)
+                email_from = settings.EMAIL_HOST_USER 
+                recipient_list = [dbuser.email, ]
+                send_mail( subject, message, email_from, recipient_list )
+                user = get_object_or_404(Student, user=ur, email=em)
+                user.password=ran_pass
+                user.save()
+                return render(request,'signin.html',{'form':form,'error':"An email has been sent "+ran_pass})
+    else:
+        form = ForgetPass_s()
+        return render(request, 'signin.html', {'form': form})
+
+def update_pass(request):
+    if request.session.has_key('t'):
+        ur=request.session['t']
+        user = get_object_or_404(Teacher, user=ur)
+        user.password=request.POST.get('new_pass')
+        user.save()
+        return redirect('/profile_t')
+    elif request.session.has_key('s'):
+        ur=request.session['s']
+        user = get_object_or_404(Student, user=ur)
+        user.password=request.POST.get('new_pass')
+        user.save()
+        return redirect('/profile')
