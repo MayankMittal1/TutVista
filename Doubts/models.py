@@ -14,7 +14,7 @@ def upload_file(instance, filename):
 
 dept_choice=(('Physics','Physics'),('Chemistry','Chemistry'),('Maths','Maths'))
 class Student(models.Model):
-    user=models.CharField(primary_key=True, max_length=20, unique=True)
+    username=models.CharField(primary_key=True, max_length=20, unique=True)
     first_name = models.CharField(max_length=20, null=True)
     last_name = models.CharField(max_length=20, null=True)
     phone=models.CharField(max_length=10, null=True, blank=True)
@@ -22,8 +22,11 @@ class Student(models.Model):
     password = models.CharField(max_length=20)
     image=models.ImageField(upload_to='student_profile/',null=True, blank=True, default='profile.png')
 
+    class Meta:
+        db_table = 'Doubts_Student'
+
 class Teacher(models.Model):
-    user=models.CharField(primary_key=True, max_length=20, unique=True)
+    username=models.CharField(primary_key=True, max_length=20, unique=True)
     first_name = models.CharField(max_length=20, null=True)
     last_name = models.CharField(max_length=20, null=True)
     email = models.EmailField()
@@ -33,6 +36,8 @@ class Teacher(models.Model):
     assigned=models.CharField(null=True,max_length=500, default=",")
     assigned_count=models.IntegerField(default=0)
     image=models.ImageField(upload_to='teacher_profile/',null=True, blank=True,default='profile.png')
+    class Meta:
+        db_table = 'Doubts_Teacher'
 
 class Question(models.Model):
      id= models.IntegerField(primary_key=True, unique=True, default=1)
@@ -44,6 +49,8 @@ class Question(models.Model):
      assigned_teacher=models.CharField(max_length=20,null=True)
      time=models.DateTimeField(auto_now=True)
      answered=models.IntegerField(default=0)
+     class Meta:
+        db_table = 'Doubts_Question'
 
 class Answer(models.Model):
     question_id= models.CharField(max_length=20, null=True)
@@ -52,9 +59,13 @@ class Answer(models.Model):
     answer_image=models.ImageField(upload_to='answers/', blank=True, null=True, default='white.jpg')
     comment=models.TextField(max_length=100000,null=True, blank=True)
     time=models.DateTimeField(auto_now=True)
+    class Meta:
+        db_table = 'Doubts_Answer'
 
 class get_info(models.Model):
     name = models.CharField(max_length=20)
     email = models.EmailField()
     phone = models.CharField(max_length=10)
     comment=models.CharField(max_length=100,blank=True,null=True)
+    class Meta:
+        db_table = 'Doubts_get_info'

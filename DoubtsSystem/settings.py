@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import django_heroku
 import os
 from django.urls.conf import path
 
@@ -133,3 +134,4 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'tutvista@gmail.com'
 EMAIL_HOST_PASSWORD = 'tutvista@123'
+django_heroku.settings(locals())

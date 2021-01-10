@@ -21,6 +21,11 @@ from django.conf.urls import url
 from django.conf import settings
 from django.conf.urls.static import static
 
+handler404 = 'Doubts.views.error_404'
+handler500 = 'Doubts.views.error_500'
+handler403 = 'Doubts.views.error_403'
+handler400 = 'Doubts.views.error_400'
+
 urlpatterns = [
     path('admin', admin.site.urls),
     path('register/', views.register, name='register'),
@@ -32,6 +37,8 @@ urlpatterns = [
     path('teacher_home', views.teacher_home),
     path('student_home', views.student_home),
     path('view_answer/', views.view_answer),
+    url(r'^$', views.home_r, name="home"),
+    path('home', views.home),
     path('profile', views.profile),
     path('profile_t', views.profile_t),
     path('update_img', views.update_img),
@@ -40,6 +47,7 @@ urlpatterns = [
     path('update_info', views.update_info),
     path('update_pass', views.update_pass),
     path('forget_pass', views.forget_pass),
+    path('about_us', views.about_us),
 ]
 
 if settings.DEBUG:

@@ -10,15 +10,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <title>TutVista</title>
     <style>
-      .container1{
+      body,html{
         background-image: url('..//static/1.jpg');
+      }
+      .container1{
         opacity: 0.7;
+        height: 100%;
       }
 
       .dark-overlay{
         background-color: rgba(22, 34, 57, 0.7);
       }
       .home{
+        height: 100%;
           background: url("../static/1.jpg");
           background-repeat: no-repeat;
           background-size: cover;
@@ -26,12 +30,13 @@
       }
       
       .card {
+        margin-top: 33px;
           color: black;
-          height: 600px;
+          height: 500px;
         position: relative;
         display: flex;
         flex-direction: column;
-        width: 400px;
+        width: 350px;
         min-width: 0;
         word-wrap: break-word;
         background:rgba(255, 255, 255, 0.3);
@@ -74,20 +79,20 @@
       border-radius: 3px;
       padding-left: 20px;
     background:rgba(255, 255, 255, 0.6);
-      width: 300px;
-      margin-top: 30px;
-      height: 40px;
+      width: 250px;
+      margin-top: 15px;
+      height: 35px;
   }
   .form-input-lg{
       border-radius: 3px;
       padding-left: 20px;
     background:rgba(255, 255, 255, 0.6);
-      width: 300px;
+      width: 250px;
       margin-top: 30px;
       height: 90px;
   }
   .btn-gi{
-      margin-top: 30px;
+      margin-top: 10px;
   }
  
     </style>
@@ -128,6 +133,11 @@
                       </ul>
                     
                     </li>
+                    <li class="nav-item">
+                      <a href="/about_us" class="nav-link" id="navbarDarkDropdownMenuLink" role="button" style="color: black;font-family: 'Open Sans', sans-serif; ">
+                        About Us
+                      </a>
+                    </li>
                   </ul>
                 </div>
         </div>
@@ -136,16 +146,18 @@
      
       <section class="text-gray-600 body-font home">
         <div class="dark-overlay">
-        <div class="container mx-auto flex px-1 py-24 lg:flex-row flex-col items-center">
-          <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+        <div class="container mx-auto flex px-1 py-24 lg:flex-row flex-col items-center row">
+          <div class="col-md-8 lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
             <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900" style="color: white;">A walkthrough of our work</h1>
             <h3 style="font-size: larger; font-weight: solid;">Empowering Education</h3><br>
 
               
-            <p class="self-align-start" style="font-weight: solid; text-align: start;">Having problems with your academics?<br>PCM Questions haunting you?<br>We at TutVista are a community of quality tutors helping you with your academic related doubts.Join up with us and you can all your queries for which are tutors are ever ready to help you.</p>
+            <p class="self-align-start" style="font-weight: solid; text-align: start;">Are you having problems with your academics?
+              PCM problems haunting you?
+              We at TutVista are a community of quality Tutors helping you with your academic doubts. Join up with us and ask all your queries for which our tutors are ever- ready to help</p>
 
           </div>
-          <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+          <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 col-md-4">
             <div class="card text-center card-form">
               <div class="card-header">
                 Get In Touch

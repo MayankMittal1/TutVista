@@ -5,12 +5,12 @@ dept_choice=["Physics","Chemistry","Mathematics","Computers"]
 class RegisterForm(forms.ModelForm):
     class Meta:
         model = Student
-        fields = ['user', 'password', 'first_name','last_name','email']
+        fields = ['first_name','last_name','email','username', 'password']
         widgets = {'password': forms.PasswordInput()}
 class Register_tForm(forms.ModelForm):
     class Meta:
         model = Teacher
-        fields = ['user', 'password','first_name','last_name', 'email','department']
+        fields = ['first_name','last_name', 'email','department','username', 'password']
         widgets = {'password': forms.PasswordInput()}
         
 class LoginForm(forms.Form):

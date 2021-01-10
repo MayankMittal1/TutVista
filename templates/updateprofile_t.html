@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <title>Profile</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <link rel="stylesheet" href="{% static 'sign_in/bootstrap.min.css' %}">
+    <link href="{% static 'tailwind/tailwind.min.css' %}" rel="stylesheet">
+    <script src="{% static 'sign_in/jQuery.min.js' %}"></script>
+    <script src="{% static 'bootstrap/popper.min.js' %}"></script>
+    <script src="{% static 'bootstrap/bootstrap.min.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'profile/styleprofile.css' %}">
+    <script src="{% static 'bootstrap/bootstrap.bundle.min.js' %}"></script>
+</head>
+
+<body>
+    <header class="text-gray-600 body-font">
+		<nav class="navbar navbar-expand-md navbar-dark bg-white">
+		  <div class="container-fluid">
+			<img src="{% static 'sign_in/logo.jpg' %}" height="50px" width="50px" style="margin-left: 20px;">
+			<a class="navbar-brand " href="/home" style="
+			color:black;
+			margin-left: 9px; font-size: small; font-family: 'Open Sans', sans-serif; font-size: larger; font-weight: bolder;">
+			TutVista<br>
+			</a>
+			<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" style="background:rgb(106,44,229);">
+			  <span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavDarkDropdown" style="margin-right: 50px;">
+					<ul class="navbar-nav ml-auto">
+                        <img src="{{teacher.image.url}}" width="40" height="40" class="rounded-circle">
+					  <li class="nav-item dropdown">
+                        
+						<a class="nav-link dropdown-toggle" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black;font-family: 'Open Sans', sans-serif; ">
+						  {{teacher.first_name}}
+                        </a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+						  <li><a class="dropdown-item" href="/teacher_home" >Dashboard</a></li>
+                          <li><a class="dropdown-item" href="/profile_t">Update Profile</a></li>
+                          <li><a class="dropdown-item" href="/logout">LogOut</a></li>
+						</ul>
+                      </li>
+                      
+                    </ul>
+                  </div>
+		  </div>
+		</nav>
+		</header>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+    <div class="view-account">
+        <section class="module">
+            <div class="module-inner">
+                <div class="side-bar">
+                    <div class="user-info">
+                        <img class="img-profile img-circle img-responsive center-block" src="{{ teacher.image.url }}" alt="">
+                        <ul class="meta list list-unstyled">
+                            <li class="name">{{ teacher.first_name }} {{ teacher.last_name }}</li>
+                            <li class="email"><a href="#">{{ teacher.email }}</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="content-panel">
+                    <h2 class="title">Profile</h2>
+                    <form class="form-horizontal" enctype="multipart/form-data" method="POST" action="update_img">
+                        {% csrf_token %}
+                        <fieldset class="fieldset">
+                            <h3 class="fieldset-title">Personal Info</h3>
+                            <div class="form-group avatar">
+                                <div class="form-inline col-md-10 col-sm-9 col-xs-12">
+                                    <input type="file" class="file-uploader pull-left" name="image">
+                                    <button type="submit" class="btn btn-sm btn-default-alt pull-left">Update Image</button>
+                                </div>
+                            </div>
+                            </form>
+                            <form class="form-horizontal"method="POST" action="update_pass">
+                                {% csrf_token %}
+                                <div class="form-inline col-md-10 col-sm-9 col-xs-12">
+                                    <p style="color: red;">{{error}}</p>
+                                    <div class="col-md-10 col-sm-9 col-xs-12 p-2">
+                                        <input type="password" class="form-control" placeholder="Old Password" name="old_pass">
+                                    </div>
+                                    <div class="col-md-10 col-sm-9 col-xs-12 p-2">
+                                        <input type="password" class="form-control" placeholder="New Password" name="new_pass">
+                                    </div>
+                                    
+                                    <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0 p-2">
+                                        <input class="btn btn-primary" type="submit" value="Update Password">
+                                    </div>
+                                </div>
+                                <fieldset class="fieldset">
+                                    <h3 class="fieldset-title">Personal Info</h3>
+                                    <div class="form-group avatar">
+
+                            <form class="form-horizontal" action="update_info" method="POST">
+                                {% csrf_token %}
+                            <div class="form-group">
+                                <label class="col-md-2 col-sm-3 col-xs-12 control-label">User Name</label>
+                                <div class="col-md-10 col-sm-9 col-xs-12">
+                                    <input type="text" class="form-control" placeholder="Username" value="{{ teacher.username }}" readonly>
+                                </div>
+                            </div>
+        
+                            <div class="form-group">
+                                <label class="col-md-2 col-sm-3 col-xs-12 control-label">First Name</label>
+                                <div class="col-md-10 col-sm-9 col-xs-12">
+                                    <input type="text" class="form-control" placeholder="First Name" value="{{ teacher.first_name }}" name="first_name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 col-sm-3 col-xs-12 control-label">Last Name</label>
+                                <div class="col-md-10 col-sm-9 col-xs-12">
+                                    <input type="text" class="form-control" placeholder="Last Name" value="{{teacher.last_name}}" name="last_name">
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset class="fieldset">
+                            <h3 class="fieldset-title">Contact Info</h3>
+                            <div class="form-group">
+                                <label class="col-md-2  col-sm-3 col-xs-12 control-label">phone number</label>
+                                <div class="col-md-10 col-sm-9 col-xs-12">
+                                    <input type="number" class="form-control" value="{{teacher.phone}}" name="phone">
+                                    <p class="help-block">Your phone number</p>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <hr>
+                        <div class="form-group">
+                            <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
+                                <input class="btn btn-primary" type="submit" value="Update Profile">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+</body>

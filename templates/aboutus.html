@@ -8,7 +8,7 @@
 
 <!DOCTYPE html>
 <html>
-
+{%load static%}
 <head>
     <title>About us</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
@@ -19,15 +19,66 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
         integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="styleaboutus.css">
+    
+    <script src="{% static 'bootstrap/bootstrap.bundle.min.js' %}"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+        integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'aboutus/styleaboutus.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 
 <body>
+    <header class="text-gray-600 body-font">
+        <nav class="navbar navbar-expand-md navbar-dark bg-white fixed-top">
+          <div class="container-fluid">
+            <img src="{% static 'sign_in/logo.jpg' %}" height="50px" width="50px" style="margin-left: 20px;">
+            <a class="navbar-brand " href="/home" style="
+            color:black;
+            margin-left: 9px; font-size: small; font-family: 'Open Sans', sans-serif; font-size: larger; font-weight: bolder;">
+            TutVista<br>
+            </a>
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" style="background:rgb(106,44,229);">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                    <ul class="navbar-nav ml-auto">
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black;font-family: 'Open Sans', sans-serif; ">
+                          Student Portal
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+                          <li><a class="dropdown-item" href="/login" >Login</a></li>
+                          <li><a class="dropdown-item" href="/register">Register</a></li>
+                        </ul>
+                      
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black;font-family: 'Open Sans', sans-serif; ">
+                          Teacher Portal
+                        </a>  
+                        <ul class="dropdown-menu dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink" >
+                          <li><a class="dropdown-item" href="/login_t" >Login</a></li>
+                          <li><a class="dropdown-item" href="/register_t" >Register</a></li>
+                         
+                        </ul>
+                      
+                      </li>
+                    </ul>
+                  </div>
+          </div>
+        </nav>
+        </header>
     <div class="bg-white">
         <div class="container py-5">
             <div class="row h-100 align-items-center py-5">
                 <div class="col-lg-6">
-                    <img src="./card.jpg" class="brand_logo" alt="Logo" style="width: 400px;">
+                    <img src="{% static 'aboutus/logo.jpeg' %}" class="brand_logo" alt="Logo" style="width: 400px;">
                 </div>
                 <div class="col-lg-6 d-none d-lg-block"><img
                         src="https://res.cloudinary.com/mhmd/image/upload/v1556834136/illus_kftyh4.png" alt=""
@@ -57,7 +108,7 @@
     <div class="bg-light py-5">
         <div class="container py-5">
             <div class="row mb-4">
-                <img src="./grp.jpg" height="150px">
+                <img src="{% static 'aboutus/hyper.jpeg' %}" height="150px" width="150px">
                 <div class="col-lg-5">
                 </br>
                     <h2 class="display-4 font-weight-light">Our Team</h2>

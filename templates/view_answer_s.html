@@ -58,8 +58,8 @@
 						  {{instance.first_name}}
                         </a>
 						<ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
-						  <li><a class="dropdown-item" href="/teacher_home" >Dashboard</a></li>
-                          <li><a class="dropdown-item" href="/profile_t">Update Profile</a></li>
+						  <li><a class="dropdown-item" href="/student_home" >Dashboard</a></li>
+                          <li><a class="dropdown-item" href="/profile">Update Profile</a></li>
                           <li><a class="dropdown-item" href="/logout">LogOut</a></li>
 						</ul>
                       </li>
@@ -83,7 +83,7 @@
                 <div class="form-group avatar">
                     <figure class="figure col-md-2 col-sm-3 col-xs-12">
                         {% if answer.answer_image %}
-                        <img class="img-responsive" src="{{ answer.answer_image.url }}">
+                        <img class="img-rounded img-responsive" src="{{ answer.answer_image.url }}">
                         {% endif %}
                     </figure>
                     </p>
